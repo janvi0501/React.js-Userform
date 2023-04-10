@@ -6,6 +6,7 @@ import Noticeboard from "./Noticeboard";
 import Dashboard from "./Dashboard";
 import { Routes, Route } from "react-router-dom";
 import ProtectedRoutes from "./ProtectedRoutes";
+import Edit from "./Edit";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/" element={<ProtectedRoutes />}>
         <Route path="/" element={<Noticeboard />} />
       </Route>
+      <Route path="/edit" element={<Edit/>}></Route>
       <Route path="/dashboard" element={<Dashboard />} />
     </Routes>
   );
