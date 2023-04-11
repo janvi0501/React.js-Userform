@@ -6,4 +6,4 @@ function ProtectedRoutes(){
     return get_Item ? <Outlet /> : <Navigate to={"/login"}/>;
     
 }
- export default ProtectedRoutes;
+ export default ProtectedRoutes;     

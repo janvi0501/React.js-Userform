@@ -47,9 +47,10 @@ function Login() {
           if (!user_login) {
             alert("invalid details");
           } else {
-            console.log("Login successfully");
+            console.log("Login successfully")
 
-            console.log(user_login);
+
+            console.log(user_login)
 
             //setauthenticated(true);
             localStorage.setItem("authenticated", true);

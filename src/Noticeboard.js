@@ -21,18 +21,23 @@ import Edit from "./Edit";
 function Noticeboard() {
   const navigate = useNavigate();
   // const { state } = useLocation();
-  // const { login_user } = state;
-
+  // const { final_Data } = state;
+  const [open, setOpen] = React.useState(false);
+  
   function handleLogout() {
     const remove_item = localStorage.removeItem("authenticated");
-
+    //const handleEdit = () => setOpen(true);
+    
     navigate("/login");
   }
-
+  
   function handleEdit() {
     // const edit_item = getData;
     // console.log("=====>", edit_item);
+    //const [open, setOpen] = React.useState(true);
     navigate("/Edit", { state: {edititem: getData } });
+    setOpen(true);
+
     
   }
 
@@ -51,7 +56,7 @@ function Noticeboard() {
                 <TableCell align="left">Lastname</TableCell>
                 <TableCell align="left">Email </TableCell>
                 <TableCell align="left">Password </TableCell>
-                <TableCell align="left">File </TableCell>
+                <TableCell align="left">Edit </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -82,6 +87,10 @@ function Noticeboard() {
                 <TableCell align="left">{getData.lastname}</TableCell>
                 <TableCell align="left">{getData.email}</TableCell>
                 <TableCell align="left">{getData.password}</TableCell>
+                {/* <TableCell align="left">{final_Data.firstname}</TableCell>
+                <TableCell align="left">{final_Data.lastname}</TableCell>
+                <TableCell align="left">{final_Data.email}</TableCell>
+                <TableCell align="left">{final_Data.password}</TableCell> */}
                 <Button
                   className="btn"
                   onClick={handleEdit}
