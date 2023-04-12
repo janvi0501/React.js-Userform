@@ -46,10 +46,53 @@ export default function Edit() {
 
   function replaceData() {
     const getData = JSON.parse(localStorage.getItem("userlogin"));
-    const information = JSON.parse(localStorage.getItem("Informations"));
-    console.log(information);
+    const multipleUserData = JSON.parse(localStorage.getItem("Informations"));
+    console.log(multipleUserData);
     console.log("replace", getData);
 
+    // const edit_user = multipleUserData.findIndex((el) => {
+    //   console.log("========", el.email);
+    //   if (edititem.email === el.email) {
+    //     //if(i = 0, i<edititem.length, i++){
+    //     console.log("check", edititem.email === el.email);
+    //     const main_div = multipleUserData.map((firstname,lastname,email,password ) => {
+
+    //         return {
+    //           firstname: editfirstname,
+    //           lastname: editlastname,
+    //           email: edititem.email,
+    //           password: editpassword,
+    //         };
+
+    //     });
+    //     console.log("main_div", main_div);
+    //   }
+    // });
+
+    const edit_user = multipleUserData.findIndex((el) => {
+      return edititem.email === el.email;
+    });
+    console.log("edit_user", edit_user);
+
+    const user_edit = multipleUserData.filter((el) => {
+      console.log("========", el.email);
+      return edititem.email === el.email;
+    });
+    console.log("user_edit", user_edit);
+
+    const main_div = user_edit.map((firstname, lastname, email, password) => {
+      return {
+        firstname: editfirstname,
+        lastname: editlastname,
+        email: edititem.email,
+        password: editpassword,
+      };
+    });
+    console.log("main_div", main_div);
+    multipleUserData[edit_user] = main_div[0]
+    localStorage.setItem("Informations", JSON.stringify(multipleUserData))
+    // const update_data = multipleUserData(el) = main_div
+    // console.log("***********", update_data)
     //pushData.push(getData);
     // console.log("***********", information [i].email);
     // console.log("##############", getData);
@@ -81,16 +124,13 @@ export default function Edit() {
 
   return (
     <div>
-      {/* <Button onClick={handleOpen}>Open modal</Button> */}
       <Modal
         open={open}
-        //onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
           <TextField
-            //value={email}
             defaultValue={edititem.firstname}
             variant="standard"
             label="Firstname"
@@ -100,7 +140,6 @@ export default function Edit() {
             }}
           />
           <TextField
-            //value={email}
             defaultValue={edititem.lastname}
             variant="standard"
             label="Lastname"
@@ -109,19 +148,8 @@ export default function Edit() {
               setEditlastname(e.target.value);
             }}
           />
-          {/* <TextField
-          //value={email}
-          defaultValue={edititem.email}
-          variant="standard"
-          label="Email"
-          
-          placeholder="Enter Your Email"
-          onChange={(e) => {
-            setEditemail(e.target.value);
-          }}
-        /> */}
+
           <TextField
-            //value={email}
             defaultValue={edititem.password}
             variant="standard"
             label="Password"
