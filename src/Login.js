@@ -66,7 +66,7 @@ function Login() {
     <Grid>
       <Paper elevation={10} style={paperStyle}>
         <Grid align="center">
-          <h2> Login in </h2>
+          <h2> Log in to Facebook </h2>
         </Grid>
         <TextField
           label="Email"
@@ -93,7 +93,7 @@ function Login() {
             required
           />
         </Grid>
-        <FormControlLabel control={<Checkbox />} label="Remember me" />
+        {/* <FormControlLabel control={<Checkbox />} label="Remember me" /> */}
         <Button
           onClick={loginData}
           variant="contained"
@@ -101,10 +101,13 @@ function Login() {
           style={btnStyle}
           fullWidth
         >
-          SUBMIT
+          LOG IN
         </Button>
         <Typography>
-          Do you have an account ?<NavLink to="/ragistartion">Sign in</NavLink>
+          Forget account ?
+        </Typography>
+        <Typography>
+        <NavLink to="/ragistartion">Create a new account</NavLink>
         </Typography>
       </Paper>
     </Grid>

@@ -79,7 +79,7 @@ function Ragistartion() {
           <Avatar style={avtarStyle}>
             <LockIcon />
           </Avatar>
-          <h2> Sign in </h2>
+          <h2> Create a new account </h2>
         </Grid>
         <TextField
           label="Firstname"
@@ -142,7 +142,7 @@ function Ragistartion() {
           />
         </Grid>
 
-        <FormControlLabel control={<Checkbox />} label="Remember me" />
+        {/* <FormControlLabel control={<Checkbox />} label="Remember me" /> */}
         <Button
           onClick={saveData}
           variant="contained"
@@ -153,7 +153,7 @@ function Ragistartion() {
           SIGN IN
         </Button>
         <Typography>
-          Already Ragister ?<NavLink to="/login">Login</NavLink>
+          Already have an account ?<NavLink to="/login">Sign up</NavLink>
         </Typography>
       </Paper>
     </Grid>

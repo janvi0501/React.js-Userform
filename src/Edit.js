@@ -48,7 +48,7 @@ export default function Edit() {
     const getData = JSON.parse(localStorage.getItem("userlogin"));
     const multipleUserData = JSON.parse(localStorage.getItem("Informations"));
     console.log(multipleUserData);
-    console.log("replace", getData);
+    console.log("replaceitem", getData);
 
     // const edit_user = multipleUserData.findIndex((el) => {
     //   console.log("========", el.email);
